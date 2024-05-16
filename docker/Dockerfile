@@ -144,5 +144,9 @@ RUN ldconfig
 COPY --from=singularity ./scripts/* /usr/local/bin/
 COPY ./manifest.txt /opt/wtsi-npg/etc/manifest.txt
 
+RUN useradd -l -m -s /bin/false appuser
+
+USER appuser
+
 CMD ["/bin/bash"]
 
